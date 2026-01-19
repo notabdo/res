@@ -23,9 +23,7 @@ export const metadata: Metadata = {
   title: "مركز رسالة للقلب",
   description: "مركز رسالة للقلب والأوعية الدموية",
   icons: {
-    icon: "/ruby.png", // أيقونة رئيسية
-    shortcut: "/ruby.png", // أيقونة اختصار
-    apple: "/ruby.png", // أيقونة أجهزة Apple (اختياري)
+    icon: "/icon.svg",
   },
 };
 
@@ -39,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${noto_Naskh_Arabic.variable} antialiased`}
       >
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

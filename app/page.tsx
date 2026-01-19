@@ -20,10 +20,10 @@ export default function Home() {
   // البيانات كـ Object
   const doctorsData = [
     {
-      name: "دكتور سيد الشبراوي",
+      name: "   دكتور سيد الشبراوي  -  استاذ امراض القلب ب معهد القلب القومي",
       services: [
-        { service: "ايكو للكبار", price: 350 },
-        { service: "ايكو اطفال و حديثي الولادة و الاجنة", price: 450 },
+        { service: "ايكو للكبار", price: 400 },
+        { service: "ايكو اطفال و حديثي الولادة و الاجنة", price: 500 },
         { service: "هولتر 24 ساعه", price: 450 },
         { service: "هولتر 48 ساعه", price: 800 },
         { service: "كشف", price: 600 },
