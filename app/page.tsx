@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden min-h-[200vh]">
-      <header className=" fixed top-0 bg-[#bd334ae3]/60 w-full backdrop-blur-[3px] z-50">
+      <header className="fixed top-0 bg-[#bd334ae3]/60 w-full backdrop-blur-[3px] z-50">
         <nav className="flex items-center justify-between p-4 ">
           <div className="flex items-center justify-center">
             <a href="tel:+201127779055">
@@ -77,71 +77,90 @@ export default function Home() {
         </nav>
 
       </header>
-      <main className="flex flex-col">
-        <div className="grid justify-items-center overflow-x-hidden mt-20">
-          <h1 className="arFont text-[10vw] font-extrabold select-all text-right ">
-            مركز رسالة للقلب
-          </h1>
-          <Badge className="arFont bg-[#bd334ae3]/50 mt-4 text-foreground">
-            .استلام اشعه فوري و بارخص سعر
-          </Badge>
-        </div>
-        <div className="flex justify-between px-10 mt-8">
-          <Link href={"/chat"}>
-            <Button className="bg-[#bd334ae3]/50 text-foreground">
-              Ai # اضغط هنا للتواصل
-            </Button>
+      <main className="grid md:grid-cols-2">
 
-          </Link>
-          <a href="https://wa.me/+201127779055" rel="noopener noreferrer">
-            <Button className="bg-[#8fc08de3] text-foreground">
-              Whatsapp<FaWhatsapp />
-            </Button>
-          </a>
-        </div>
-        <Image
-          className="heart"
-          src="/ruby.png"
-          alt="Next.js logo"
-          width={900}
-          height={400}
-          priority
-        />
+        <div className="hidden md:block">
+          <Image
+            className="heart "
+            src="/ruby.png"
+            alt="Next.js logo"
+            width={600}
+            height={400}
+            priority
+          />
 
-        <div className="space-y-6 px-4">
-          {doctorsData.map((doctor) => (
-            <Card
-              key={doctor.name}
-              className="bg-muted/30 border-dashed border-black/20 dark:border-white/50 border"
-            >
-              <CardHeader className="py-3">
-                <CardTitle className="text-sm text-right font-medium">
-                  <Badge variant={"outline"}
-                    className="p-3 h-4">
-                    {doctor.name}
-                  </Badge>
-                </CardTitle>
-              </CardHeader>
-              <CardFooter className="flex-col gap-3 pt-0">
-                <div
-                  className="w-full p-3 
+
+
+        </div>
+        <div>
+          <div className="grid justify-items-center overflow-x-hidden mt-20">
+            <h1 className="arFont text-[10vw] md:text-[5dvw] font-extrabold select-all text-right ">
+              مركز رسالة للقلب
+            </h1>
+            <Badge className="arFont bg-[#bd334ae3]/50 mt-4 text-foreground">
+              .استلام اشعه فوري و بارخص سعر
+            </Badge>
+          </div>
+          <div className="flex justify-between md:justify-end md:gap-10 px-10 mt-8">
+            <Link href={"/chat"}>
+              <Button className="bg-[#bd334ae3]/50 text-foreground">
+                Ai # اضغط هنا للتواصل
+              </Button>
+
+            </Link>
+            <a href="https://wa.me/+201127779055" rel="noopener noreferrer">
+              <Button className="bg-[#8fc08de3] text-foreground">
+                Whatsapp<FaWhatsapp />
+              </Button>
+            </a>
+          </div>
+          <Image
+            className="heart block md:hidden"
+            src="/ruby.png"
+            alt="Next.js logo"
+            width={900}
+            height={400}
+            priority
+          />
+          <div className="space-y-6 px-4 md:mt-10">
+            {doctorsData.map((doctor) => (
+              <Card
+                key={doctor.name}
+                className="bg-muted/30 border-dashed border-black/20 dark:border-white/50 border"
+              >
+                <CardHeader className="py-3">
+                  <CardTitle className="text-sm text-right font-medium">
+                    <Badge variant={"outline"}
+                      className="p-3 h-4">
+                      {doctor.name}
+                    </Badge>
+                  </CardTitle>
+                </CardHeader>
+                <CardFooter className="flex-col gap-3 pt-0">
+                  <div
+                    className="w-full p-3 
                  bg-linear-to-b dark:from-[#000000] dark:to-[#333333] 
                  from-[#ffffff] to-[#dfdfdf]
                   border-dashed border-black/20 dark:border-white/50 border
                    rounded-md shadow-2xl dark:shadow-white/20 text-sm"
-                >
-                  {doctor.services.map((service, idx) => (
-                    <div key={idx}
-                      className="flex justify-between  items-center mb-2 border-b pb-2">
-                      <span className="text-xs text-muted-foreground">{service.price} ج.م</span>
-                      <span className="font-bold text-primary">{service.service}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardFooter>
-            </Card>
-          ))}
+                  >
+                    {doctor.services.map((service, idx) => (
+                      <div key={idx}
+                        className="flex justify-between  items-center mb-2 border-b pb-2">
+                        <span className="text-xs text-muted-foreground">{service.price} ج.م</span>
+                        <span className="font-bold text-primary">{service.service}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
+
+
+
+
       </main>
     </div>
   );
