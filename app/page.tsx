@@ -38,12 +38,7 @@ export default function Home() {
     <div style={{ position: "relative", zIndex: 1 }}>
 
       {/* ===== TOP BAR ===== */}
-      <header style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "22px 40px", borderBottom: "1px solid var(--rs-hairline)",
-        backdropFilter: "blur(8px)", background: "oklch(0.13 0.01 25 / 0.6)",
-        position: "sticky", top: 0, zIndex: 50,
-      }}>
+      <header className="rs-topbar">
         {/* Brand */}
         <div style={{ display: "flex", alignItems: "center", gap: 12, fontWeight: 700 }}>
           <div style={{
@@ -63,7 +58,7 @@ export default function Home() {
         </div>
 
         {/* Nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <nav className="rs-nav-links" style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <a href="#services" style={{ padding: "8px 14px", borderRadius: 999, fontSize: 14, color: "var(--rs-fg-1)", transition: "color 0.2s" }}>الفحوصات</a>
           <a href="#contact" style={{ padding: "8px 14px", borderRadius: 999, fontSize: 14, color: "var(--rs-fg-1)", transition: "color 0.2s" }}>اتصل بنا</a>
           <Link href="/chat" style={{
@@ -155,7 +150,7 @@ export default function Home() {
             استلام الأشعة فوري · بأرخص سعر
           </span>
           <h1 style={{
-            fontSize: "clamp(48px, 6.4vw, 88px)", fontWeight: 800,
+            fontSize: "clamp(32px, 7vw, 88px)", fontWeight: 800,
             lineHeight: 1.05, letterSpacing: "-0.025em", margin: "22px 0 18px",
             background: "linear-gradient(180deg, var(--rs-fg-0) 30%, oklch(0.7 0.05 30) 100%)",
             WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
@@ -168,8 +163,8 @@ export default function Home() {
               إيدين أمينة
             </span>
           </h1>
-          <p style={{
-            fontSize: 19, color: "var(--rs-fg-1)", maxWidth: 520,
+          <p className="rs-lede" style={{
+            fontSize: 17, color: "var(--rs-fg-1)", maxWidth: 520,
             marginInlineStart: "auto", marginBottom: 36, lineHeight: 1.7,
           }}>
             مركز رسالة للقلب — تشخيص دقيق وفحوصات قلب وأشعة بأسعار في متناول الجميع، بإشراف نخبة من أساتذة معهد القلب القومي.
@@ -385,7 +380,7 @@ export default function Home() {
       </footer>
 
       {/* ===== FLOATING AI FAB ===== */}
-      <Link href="/chat" style={{
+      <Link href="/chat" className="rs-ai-fab" style={{
         position: "fixed", bottom: 28, left: 28, zIndex: 40,
         background: "linear-gradient(135deg, oklch(0.55 0.20 22), oklch(0.40 0.18 22))",
         color: "white", padding: "14px 20px 14px 18px", borderRadius: 999,

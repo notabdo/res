@@ -219,6 +219,18 @@
 .rs-typing-dots span:nth-child(3) { animation-delay: 0.3s; }
 
 /* ===== Responsive layouts ===== */
+.rs-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--rs-hairline);
+  backdrop-filter: blur(8px);
+  background: oklch(0.13 0.01 25 / 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 .rs-hero {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -246,33 +258,51 @@
   gap: 16px;
 }
 .rs-hero-copy { text-align: right; }
+.rs-nav-links { display: flex; align-items: center; gap: 4px; }
 .rs-orbit-s1 { position: absolute; top: 10%; right: -8%; animation: floatStat 5s ease-in-out infinite; }
 .rs-orbit-s2 { position: absolute; bottom: 12%; left: -6%; animation: floatStat 5s ease-in-out infinite 1.5s; }
 
 @media (max-width: 960px) {
+  .rs-topbar { padding: 14px 20px; }
+  .rs-nav-links a { display: none; }
   .rs-hero {
     grid-template-columns: 1fr;
-    padding: 40px 24px 80px;
+    padding: 32px 20px 60px;
+    min-height: unset;
+    gap: 32px;
   }
-  .rs-hero-art { order: 2; max-width: 360px !important; }
+  .rs-hero-art { order: 2; max-width: 300px !important; }
   .rs-hero-copy { order: 1; text-align: center !important; }
   .rs-hero-copy .rs-lede { margin-inline: auto; }
   .rs-hero-ctas, .rs-trust-strip { justify-content: center !important; }
   .rs-doctors-grid { grid-template-columns: 1fr; }
-  .rs-pricing-section, .rs-contact-band { padding-inline: 24px !important; }
+  .rs-pricing-section { padding: 48px 20px !important; }
+  .rs-contact-band { padding: 40px 20px !important; }
   .rs-contact-grid { grid-template-columns: 1fr; }
-  .rs-contact-card { padding: 32px !important; }
-  .rs-topbar { padding: 16px 20px !important; }
-  footer { padding: 24px !important; }
-  .rs-orbit-s1 { right: 0; top: 0; }
-  .rs-orbit-s2 { left: 0; bottom: 0; }
+  .rs-contact-card { padding: 28px !important; }
+  .rs-info-grid { grid-template-columns: 1fr 1fr; }
+  footer { padding: 24px 20px !important; }
+  .rs-orbit-s1 { right: -2%; top: 2%; min-width: 120px !important; font-size: 13px; }
+  .rs-orbit-s2 { left: -2%; bottom: 2%; min-width: 120px !important; font-size: 13px; }
   .rs-welcome-cards { grid-template-columns: 1fr !important; }
+  .rs-ai-fab span:last-of-type { display: none; }
 }
 
 @media (max-width: 640px) {
+  .rs-topbar { padding: 12px 16px; }
+  .rs-hero { padding: 24px 16px 48px; gap: 24px; }
+  .rs-hero-art { max-width: 260px !important; }
+  .rs-orbit-s1, .rs-orbit-s2 { display: none; }
+  .rs-pricing-section { padding: 40px 16px !important; }
+  .rs-contact-band { padding: 32px 16px !important; }
+  .rs-contact-card { padding: 20px !important; }
+  .rs-info-grid { grid-template-columns: 1fr; }
+  .rs-doctors-grid { gap: 16px; }
+  footer { padding: 20px 16px !important; }
   .rs-chat-messages { padding: 20px 14px 12px !important; }
-  .rs-chat-input-area { padding: 8px 14px 14px !important; }
+  .rs-chat-input { padding: 8px 14px 16px !important; }
   .rs-chat-topbar { padding: 12px 16px !important; }
+  .rs-ai-fab { bottom: 20px !important; left: 16px !important; padding: 12px 14px !important; font-size: 13px; }
 }
 
 /* Body ambient gradient */

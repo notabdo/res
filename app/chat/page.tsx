@@ -139,10 +139,10 @@ export default function ChatPage() {
   const isStarted = messages.length > 0
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden", background: "var(--rs-bg-0)" }}>
+    <div style={{ display: "flex", flexDirection: "column", height: "100dvh", overflow: "hidden", background: "var(--rs-bg-0)" }}>
 
       {/* ===== TOPBAR ===== */}
-      <header style={{
+      <header className="rs-chat-topbar" style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "14px 28px", borderBottom: "1px solid var(--rs-hairline)",
         backdropFilter: "blur(8px)", background: "oklch(0.13 0.01 25 / 0.7)",
@@ -216,7 +216,7 @@ export default function ChatPage() {
       </div>
 
       {/* ===== MESSAGES AREA ===== */}
-      <main style={{ flex: 1, overflowY: "auto", padding: "32px 24px 16px", position: "relative", zIndex: 1 }}>
+      <main className="rs-chat-messages" style={{ flex: 1, overflowY: "auto", padding: "32px 24px 16px", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", flexDirection: "column", gap: 18 }}>
 
           {/* Welcome state */}
@@ -330,7 +330,7 @@ export default function ChatPage() {
       </main>
 
       {/* ===== INPUT AREA ===== */}
-      <div style={{
+      <div className="rs-chat-input" style={{
         flexShrink: 0, padding: "12px 24px 20px",
         background: "linear-gradient(180deg, transparent, var(--rs-bg-0) 30%)",
         position: "relative", zIndex: 5,
