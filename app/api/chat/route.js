@@ -1,10 +1,6 @@
 import Groq from "groq-sdk";
 import { NextResponse } from 'next/server';
 
-const groq = new Groq({ 
-  apiKey: process.env.GROQ_API_KEY 
-});
-
 // System prompt - customize this for your chatbot's behavior
 const SYSTEM_PROMPT = `أنت مساعد آلي لمركز رسالة للقلب والأوعية الدموية.
 
@@ -17,8 +13,8 @@ const SYSTEM_PROMPT = `أنت مساعد آلي لمركز رسالة للقلب
 **الفحوصات والأسعار:**
 
 دكتور سيد الشبراوي:
-- إيكو للكبار: 350 جنيه
-- إيكو أطفال وحديثي الولادة والأجنة: 450 جنيه
+- إيكو للكبار: 400 جنيه
+- إيكو أطفال وحديثي الولادة والأجنة: 500 جنيه
 - هولتر 24 ساعة: 450 جنيه
 - هولتر 48 ساعة: 800 جنيه
 - كشف: 600 جنيه
@@ -39,9 +35,9 @@ const SYSTEM_PROMPT = `أنت مساعد آلي لمركز رسالة للقلب
 
 export async function POST(request) {
   try {
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
     const { messages } = await request.json();
 
-    // Add system prompt as the first message
     const messagesWithSystem = [
       {
         role: "system",

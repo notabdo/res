@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Naskh_Arabic } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Naskh_Arabic, Tajawal } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
@@ -14,9 +14,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const noto_Naskh_Arabic = Noto_Naskh_Arabic({
+const notoNaskhArabic = Noto_Naskh_Arabic({
   variable: "--font-noto-naskh-arabic",
   subsets: ["arabic", "latin"],
+});
+
+const tajawal = Tajawal({
+  variable: "--font-tajawal",
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -33,22 +39,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${noto_Naskh_Arabic.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoNaskhArabic.variable} ${tajawal.variable} antialiased`}
+        style={{ fontFamily: "var(--font-tajawal), var(--font-noto-naskh-arabic), system-ui, sans-serif" }}
       >
-
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           {children}
           <Toaster />
-
         </ThemeProvider>
-
       </body>
     </html>
   );
